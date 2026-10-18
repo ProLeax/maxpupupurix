@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f3f0e8">
+  <meta name="description" content="Максим Пурик. Нишевая бака, Максакака, Пупупурик. Главный объект исследования абсолютной нишевости. Специальный выпуск ко дню рождения.">
+  <meta name="robots" content="noindex,nofollow">
+  <title>МАКСИМ ПУРИК — абсолютно нишевое досье</title>
+  <style>
+    :root { --paper:#f3f0e8; --paper2:#eae6db; --ink:#191b19; --muted:#74766f; --lime:#d9fc69; --pink:#f49cab; --violet:#bcb3f3; --blue:#abccef; --line:#c9c8be; --wide:1380px; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--paper); color:var(--ink); font-family:Inter,"Arial",sans-serif; -webkit-font-smoothing:antialiased; }
+    a { color:inherit; text-decoration:none; }
+    button { font:inherit; }
+    img { max-width:100%; display:block; }
+    ::selection { background:var(--lime); color:var(--ink); }
+    .mono { font-family:"Courier New",monospace; font-size:12px; font-weight:700; letter-spacing:.065em; text-transform:uppercase; }
+    .container { max-width:var(--wide); padding:0 42px; margin:0 auto; }
+    .progress { position:fixed; top:0; left:0; z-index:90; width:0; height:4px; background:#ec6858; }
+    .header { position:relative; z-index:30; border-bottom:1px solid var(--ink); background:var(--paper); }
+    .header-in { display:flex; align-items:center; justify-content:space-between; gap:22px; max-width:var(--wide); padding:17px 42px; margin:auto; }
+    .brand { display:inline-flex; align-items:center; gap:13px; font-size:12px; font-weight:900; letter-spacing:-.015em; text-transform:uppercase; line-height:1.05; }
+    .brand-mark { display:grid; place-items:center; width:42px; height:42px; background:var(--ink); color:var(--lime); font-size:24px; letter-spacing:-.15em; padding-right:3px; }
+    .nav { display:flex; gap:27px; align-items:center; }
+    .nav a { font-size:12px; font-weight:850; text-transform:uppercase; letter-spacing:.035em; transition:opacity .15s ease; }
+    .nav a:hover { opacity:.52; }
+    .nav-tag { padding:12px 13px; border:1px solid var(--ink); background:var(--lime); white-space:nowrap; }
+    .hero { position:relative; overflow:hidden; border-bottom:1px solid var(--ink); }
+    .hero-grid { min-height:745px; display:grid; grid-template-columns:minmax(0,1.14fr) minmax(340px,.86fr); align-items:center; gap:36px; padding-top:60px; padding-bottom:82px; }
+    .eyebrow { display:flex; align-items:center; gap:14px; margin-bottom:24px; }
+    .eyebrow .dot { width:11px; height:11px; border-radius:50%; background:#ea665d; box-shadow:0 0 0 5px #ea665d27; }
+    .hero-kicker { font-size:13px; font-weight:850; letter-spacing:.025em; text-transform:uppercase; }
+    .hero h1 { position:relative; z-index:3; margin:0; font-size:clamp(75px,8.1vw,127px); font-weight:950; letter-spacing:-.105em; line-height:.89; text-transform:uppercase; }
+    .hero h1 .outline { color:transparent; -webkit-text-stroke:2px var(--ink); }
+    .hero h1 .last { white-space:nowrap; }
+    .hero-lead { max-width:510px; margin:34px 0 29px; font-size:18px; line-height:1.57; letter-spacing:-.025em; }
+    .hero-bottom { display:flex; align-items:center; gap:20px; flex-wrap:wrap; }
+    .button { display:inline-flex; align-items:center; justify-content:center; gap:15px; min-height:50px; padding:14px 20px; background:var(--ink); color:var(--paper); border:1px solid var(--ink); cursor:pointer; font-size:12px; font-weight:850; letter-spacing:.025em; text-transform:uppercase; transition:transform .18s ease,background .18s ease,color .18s ease; }
+    .button:hover { transform:translateY(-2px); background:var(--lime); color:var(--ink); }
+    .hero-note { max-width:160px; line-height:1.45; color:var(--muted); }
+    .hero-visual { position:relative; width:min(100%,500px); justify-self:end; padding:16px 20px 8px 18px; }
+    .photo-frame { position:relative; aspect-ratio: .85; padding:11px 11px 45px; background:#f9f8f2; border:2px solid var(--ink); box-shadow:14px 14px 0 var(--ink); transform:rotate(4.5deg); }
+    .photo-frame > img { width:100%; height:100%; object-fit:cover; object-position:center 42%; filter:saturate(.8); }
+    .photo-frame .caption { display:flex; justify-content:space-between; padding-top:14px; color:var(--ink); }
+    .hero-sticker { position:absolute; top:-18px; right:-32px; z-index:4; display:grid; place-items:center; width:143px; height:143px; padding:13px; background:var(--lime); border:2px solid var(--ink); border-radius:50%; transform:rotate(15deg); text-align:center; font-size:18px; font-weight:950; line-height:1.05; letter-spacing:-.055em; box-shadow:6px 6px 0 var(--ink); }
+    .hero-star { position:absolute; left:-26px; bottom:26px; z-index:4; width:104px; height:104px; display:grid; place-items:center; border:2px solid var(--ink); background:var(--pink); border-radius:50%; transform:rotate(-17deg); font-size:74px; font-weight:300; line-height:1; }
+    .ticker { background:var(--lime); border-bottom:1px solid var(--ink); border-top:1px solid var(--ink); overflow:hidden; }
+    .ticker-in { display:flex; justify-content:space-around; gap:30px; padding:16px 0; white-space:nowrap; font-size:13px; font-weight:900; letter-spacing:.025em; text-transform:uppercase; }
+    .ticker-in span:nth-child(even) { opacity:.5; }
+    .facts { background:var(--ink); color:var(--paper); }
+    .facts-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); }
+    .fact { padding:34px 26px 35px; border-right:1px solid #494c46; }
+    .fact:first-child { padding-left:0; }
+    .fact:last-child { border-right:0; }
+    .fact .mono { color:var(--lime); font-size:11px; }
+    .fact strong { display:block; padding-top:16px; font-size:clamp(19px,2vw,28px); font-weight:800; letter-spacing:-.055em; line-height:1.15; }
+    .intro { position:relative; padding:134px 0 134px; border-bottom:1px solid var(--line); }
+    .sideheading { display:flex; align-items:center; gap:13px; }
+    .sideheading:before { content:""; display:block; width:25px; height:1px; background:currentColor; }
+    .intro-grid { display:grid; grid-template-columns:260px 1fr; gap:65px; }
+    .intro-text h2 { margin:-13px 0 28px; max-width:900px; font-size:clamp(45px,5.35vw,80px); letter-spacing:-.085em; line-height:1.07; font-weight:900; }
+    .marker { background:linear-gradient(transparent 73%,var(--lime) 73%); }
+    .intro-text p { max-width:730px; font-size:19px; line-height:1.75; color:#51534e; letter-spacing:-.016em; }
+    .intro-asterisk { display:inline-block; transform:rotate(-16deg); color:#f06c57; }
+    .section-head { display:flex; justify-content:space-between; align-items:flex-end; gap:20px; margin-bottom:52px; }
+    .section-head h2 { margin:12px 0 0; font-size:clamp(44px,5.4vw,78px); line-height:.98; font-weight:900; letter-spacing:-.09em; }
+    .section-head .sub { max-width:280px; font-size:14px; line-height:1.6; color:var(--muted); }
+    .article { padding:106px 0 120px; }
+    .article-grid { display:grid; grid-template-columns:270px minmax(0,1fr); gap:70px; }
+    .article-aside { align-self:stretch; }
+    .aside-sticky { position:sticky; top:25px; }
+    .article-aside h3 { margin:0 0 17px; font-weight:850; font-size:13px; text-transform:uppercase; }
+    .aside-note { border-top:1px solid var(--ink); padding-top:16px; font-size:14px; line-height:1.6; color:#666862; }
+    .mini-fact { margin:32px 0 0; padding:23px; background:var(--violet); border:1px solid var(--ink); transform:rotate(-2deg); box-shadow:5px 5px 0 var(--ink); }
+    .mini-fact strong { display:block; margin-top:10px; font-size:39px; font-weight:950; letter-spacing:-.09em; line-height:1; }
+    .chapters { border-top:1px solid var(--ink); }
+    .chapter { display:grid; grid-template-columns:65px 1fr; gap:18px; padding:34px 0 41px; border-bottom:1px solid var(--line); }
+    .chapter-num { padding-top:8px; color:#8b8d85; }
+    .chapter h3 { max-width:750px; margin:0 0 22px; font-size:clamp(27px,3vw,41px); font-weight:850; letter-spacing:-.065em; line-height:1.1; }
+    .chapter p { max-width:790px; margin:0 0 17px; font-size:16.5px; line-height:1.78; color:#4b4e48; }
+    .chapter p:last-child { margin-bottom:0; }
+    .chapter .emphasis { color:var(--ink); font-weight:750; }
+    .quant { background:var(--ink); color:var(--paper); padding:90px 0 110px; overflow:hidden; }
+    .quant-top { display:flex; justify-content:space-between; align-items:center; gap:20px; margin-bottom:58px; }
+    .quant-top .tag { padding:11px 14px; color:var(--ink); background:var(--lime); transform:rotate(3deg); }
+    .quant-main { display:grid; grid-template-columns:1fr 1fr; gap:70px; }
+    .quant-big .big-num { display:block; margin-left:-10px; color:var(--lime); font-size:clamp(115px,17vw,240px); line-height:.85; font-weight:950; letter-spacing:-.11em; }
+    .quant-big p { max-width:380px; margin:26px 0 0; font-size:19px; line-height:1.5; }
+    .quant-bars { padding-top:25px; }
+    .scale-line { margin-bottom:30px; }
+    .scale-t { display:flex; justify-content:space-between; gap:20px; margin-bottom:11px; font-family:"Courier New",monospace; font-weight:700; font-size:12px; line-height:1.4; }
+    .bar { position:relative; height:15px; border:1px solid #76796e; background:#383b36; }
+    .bar i { position:absolute; top:-1px; bottom:-1px; left:-1px; width:var(--fill); background:var(--pink); border:1px solid var(--ink); }
+    .scale-line:nth-child(2) .bar i { background:var(--violet); }
+    .scale-line:nth-child(3) .bar i { background:var(--lime); }
+    .quant-disclaimer { display:block; margin-top:42px; color:#aaa99e; line-height:1.7; }
+    .gallery { padding:105px 0 120px; }
+    .gallery-grid { display:grid; grid-template-columns:1.25fr .85fr .85fr; gap:16px; }
+    .gallery-card { position:relative; min-height:335px; overflow:hidden; border:1px solid var(--ink); isolation:isolate; background:#d3dad5; }
+    .gallery-card.main { grid-row:span 2; min-height:690px; }
+    .gallery-card:nth-child(2) { background:var(--pink); }
+    .gallery-card:nth-child(3) { background:var(--blue); }
+    .gallery-card:nth-child(4) { background:var(--violet); }
+    .gallery-card:nth-child(5) { background:var(--lime); }
+    .gallery-card img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; z-index:-1; }
+    .gallery-card.main img { object-position:50% 37%; }
+    .gallery-card.has-photo .gallery-typography { display:none; }
+    .gallery-typography { position:absolute; inset:12% 7% 15%; display:flex; flex-direction:column; justify-content:center; overflow:hidden; font-size:clamp(32px,4.8vw,78px); font-weight:950; line-height:.95; letter-spacing:-.09em; overflow-wrap:anywhere; text-transform:uppercase; }
+    .gallery-typography small { margin-top:18px; font-family:"Courier New",monospace; font-size:13px; font-weight:700; letter-spacing:0; line-height:1.5; text-transform:uppercase; }
+    .gallery-card:nth-child(3) .gallery-typography { transform:rotate(-9deg); }
+    .gallery-card:nth-child(4) .gallery-typography { transform:rotate(5deg); }
+    .gallery-card .photo-label { position:absolute; bottom:0; left:0; right:0; z-index:2; display:flex; align-items:center; justify-content:space-between; gap:8px; padding:14px; color:var(--ink); background:var(--paper); border-top:1px solid var(--ink); font-family:"Courier New",monospace; font-size:10px; font-weight:800; text-transform:uppercase; }
+    .gallery-caption { margin:20px 0 0; text-align:right; color:var(--muted); }
+    .dictionary { padding:100px 0 120px; background:var(--paper2); border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); }
+    .word-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+    .word-card { min-height:310px; display:flex; flex-direction:column; padding:26px 28px; border:1px solid var(--ink); background:var(--paper); }
+    .word-card:nth-child(2) { background:var(--lime); }
+    .word-card:nth-child(3) { background:var(--violet); }
+    .word-card .mono { color:#5a5d56; }
+    .word-card h3 { margin:26px 0 14px; font-size:clamp(29px,3vw,43px); line-height:1.02; letter-spacing:-.085em; font-weight:900; overflow-wrap:anywhere; }
+    .word-card p { margin:auto 0 0; padding-top:15px; font-size:15px; line-height:1.64; color:#484b46; }
+    .orbit { padding:110px 0 125px; }
+    .orbit-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+    .orbit-card { min-height:510px; border:1px solid var(--ink); overflow:hidden; }
+    .orbit-card.fav { display:grid; grid-template-columns:1fr .85fr; background:var(--pink); }
+    .orbit-copy { padding:35px; display:flex; flex-direction:column; align-items:flex-start; }
+    .orbit-copy h3 { margin:35px 0 15px; font-size:clamp(39px,4.1vw,66px); line-height:1; letter-spacing:-.095em; font-weight:950; }
+    .orbit-copy p { font-size:16px; line-height:1.6; max-width:340px; }
+    .orbit-copy .orbit-bottom { margin-top:auto; font-size:11px; }
+    .fav-art { position:relative; min-height:100%; background:#a4a0bb; border-left:1px solid var(--ink); overflow:hidden; }
+    .fav-art img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+    .fav-art .placeholder-word { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; text-align:center; font-size:clamp(80px,10vw,170px); line-height:1; filter:grayscale(0); }
+    .fav-art.has-photo .placeholder-word { display:none; }
+    .orbit-card.music { position:relative; background:var(--blue); display:flex; flex-direction:column; padding:35px; }
+    .music h3 { margin:70px 0 0; font-weight:950; font-size:clamp(78px,8vw,126px); line-height:.83; letter-spacing:-.11em; }
+    .music h3 span { display:block; }
+    .music-tag { align-self:flex-start; background:var(--ink); color:var(--paper); padding:10px 12px; margin-top:25px; transform:rotate(-4deg); }
+    .music-bottom { margin-top:auto; max-width:400px; font-size:16px; line-height:1.6; }
+    .music-asterisk { position:absolute; top:35px; right:35px; font-size:92px; line-height:1; font-weight:200; transform:rotate(20deg); }
+    .qa { padding:96px 0 115px; background:#ece8df; border-top:1px solid var(--ink); }
+    .qa-grid { display:grid; grid-template-columns:1fr 1.5fr; gap:65px; }
+    .qa-list { border-top:1px solid var(--ink); }
+    details { border-bottom:1px solid #b9bab1; }
+    summary { display:flex; align-items:center; justify-content:space-between; padding:24px 0; gap:20px; cursor:pointer; list-style:none; font-size:20px; font-weight:800; line-height:1.3; letter-spacing:-.04em; }
+    summary::-webkit-details-marker { display:none; }
+    summary:after { content:"+"; flex-shrink:0; font-family:"Courier New",monospace; font-size:28px; font-weight:400; }
+    details[open] summary:after { content:"−"; }
+    details p { margin:-6px 35px 25px 0; max-width:640px; color:#575a52; font-size:16px; line-height:1.7; }
+    .birthday { padding:115px 0 105px; background:var(--lime); overflow:hidden; border-top:1px solid var(--ink); }
+    .birthday-head { display:flex; align-items:center; justify-content:space-between; }
+    .birthday-icon { font-size:70px; line-height:1; }
+    .birthday h2 { margin:50px 0 28px; font-size:clamp(70px,11.2vw,174px); font-weight:950; line-height:.89; letter-spacing:-.105em; text-transform:uppercase; overflow-wrap:anywhere; }
+    .birthday h2 .outline { color:transparent; -webkit-text-stroke:2px var(--ink); }
+    .birthday-description { max-width:780px; font-size:19px; line-height:1.65; letter-spacing:-.025em; }
+    .birthday-action { display:flex; align-items:center; gap:22px; margin-top:35px; flex-wrap:wrap; }
+    .birthday-action .button:hover { background:var(--paper); }
+    .message { display:none; max-width:780px; margin-top:30px; padding:28px 31px; border:1px solid var(--ink); background:var(--paper); box-shadow:7px 7px 0 var(--ink); font-size:19px; line-height:1.6; }
+    .message.show { display:block; }
+    .message strong { display:block; margin-bottom:8px; font-size:24px; }
+    footer { padding:28px 0 35px; background:var(--ink); color:#dfded5; }
+    .footer-grid { display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap; }
+    .footer-grid .mono { font-size:11px; }
+    .footer-mark { color:var(--lime); font-weight:950; font-size:22px; letter-spacing:-.1em; }
+    @media(max-width:1100px) {
+      .container { padding-left:28px; padding-right:28px; }
+      .header-in { padding:17px 28px; }
+      .hero-grid { min-height:680px; gap:6px; grid-template-columns:1.05fr .95fr; }
+      .hero h1 { font-size:clamp(65px,8vw,105px); }
+      .hero-sticker { width:115px; height:115px; font-size:15px; right:-10px; }
+      .article-grid { grid-template-columns:190px 1fr; gap:45px; }
+      .intro-grid { grid-template-columns:180px 1fr; gap:35px; }
+      .orbit-card.fav { grid-template-columns:1fr .7fr; }
+      .orbit-copy { padding:25px; }
+    }
+    @media(max-width:760px) {
+      .container { padding-left:20px; padding-right:20px; }
+      .header-in { padding:12px 20px; }
+      .brand { font-size:11px; }
+      .brand-mark { width:36px; height:36px; }
+      .nav { gap:11px; }
+      .nav a:not(.nav-tag) { display:none; }
+      .nav-tag { padding:9px 10px; font-size:10px!important; }
+      .hero-grid { display:flex; flex-direction:column; align-items:stretch; padding-top:55px; padding-bottom:68px; gap:55px; }
+      .hero h1 { font-size:clamp(67px,12vw,98px); }
+      .hero-lead { margin-top:25px; font-size:16px; }
+      .hero-visual { justify-self:center; width:min(85%,410px); align-self:center; margin-right:15px; }
+      .hero-sticker { top:-18px; right:-27px; }
+      .hero-star { left:-24px; bottom:15px; width:79px; height:79px; font-size:55px; }
+      .ticker-in { justify-content:flex-start; font-size:11px; }
+      .ticker-in span { min-width:max-content; }
+      .facts-grid { grid-template-columns:1fr 1fr; }
+      .fact { padding:28px 15px 29px; border-bottom:1px solid #494c46; }
+      .fact:nth-child(odd) { padding-left:0; }
+      .fact:nth-child(even) { border-right:0; }
+      .fact:nth-last-child(-n+2) { border-bottom:0; }
+      .fact strong { font-size:23px; }
+      .intro { padding:88px 0; }
+      .intro-grid,.article-grid { display:block; }
+      .intro-grid>.mono,.article-aside { display:block; margin-bottom:32px; }
+      .intro-text h2 { font-size:clamp(43px,9vw,70px); }
+      .intro-text p { font-size:17px; }
+      .article { padding:80px 0; }
+      .article-aside .aside-sticky { position:static; }
+      .article-aside .aside-note { display:none; }
+      .mini-fact { display:none; }
+      .section-head { margin-bottom:34px; }
+      .section-head h2 { font-size:clamp(42px,9vw,65px); }
+      .section-head .sub { display:none; }
+      .chapter { grid-template-columns:42px 1fr; gap:6px; padding:28px 0 34px; }
+      .chapter h3 { font-size:28px; }
+      .chapter p { font-size:15.5px; }
+      .quant { padding:75px 0; }
+      .quant-main { display:block; }
+      .quant-big .big-num { font-size:clamp(120px,28vw,230px); }
+      .quant-bars { padding-top:60px; }
+      .gallery { padding:76px 0 88px; }
+      .gallery-grid { grid-template-columns:1fr 1fr; gap:10px; }
+      .gallery-card { min-height:245px; }
+      .gallery-card.main { min-height:495px; grid-row:span 2; }
+      .gallery-card:nth-child(4),.gallery-card:nth-child(5) { min-height:245px; }
+      .gallery-typography { font-size:clamp(32px,6.4vw,70px); }
+      .gallery-card .photo-label { padding:10px; font-size:8px; }
+      .dictionary { padding:78px 0; }
+      .word-grid { grid-template-columns:1fr; gap:10px; }
+      .word-card { min-height:210px; }
+      .word-card h3 { font-size:35px; margin:18px 0 5px; }
+      .orbit { padding:80px 0; }
+      .orbit-grid { grid-template-columns:1fr; }
+      .orbit-card { min-height:455px; }
+      .orbit-copy h3 { font-size:57px; }
+      .music h3 { font-size:100px; }
+      .qa { padding:78px 0; }
+      .qa-grid { display:block; }
+      .qa-grid .section-head { margin-bottom:28px; }
+      .birthday { padding:80px 0 90px; }
+      .birthday h2 { font-size:clamp(49px,10.8vw,80px); }
+      .birthday-description { font-size:17px; }
+    }
+    @media(max-width:420px) {
+      .hero h1 { font-size:clamp(61px,12vw,78px); }
+      .hero-visual { width:88%; }
+      .hero-sticker { width:104px; height:104px; font-size:13px; }
+      .gallery-card.main { min-height:435px; }
+      .gallery-card { min-height:210px; }
+      .gallery-typography { font-size:27px; }
+      .orbit-card.fav { grid-template-columns:1fr .68fr; }
+      .orbit-copy h3 { font-size:44px; }
+      .orbit-copy p { font-size:14px; }
+      .music h3 { font-size:80px; }
+    }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } .button,.nav a { transition:none; } }
+  </style>
+</head>
+<body>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+  <header class="header">
+    <div class="header-in">
+      <a class="brand" href="#top" aria-label="Наверх, архив абсолютной нишевости"><span class="brand-mark">н/</span><span>ИНСТИТУТ<br>НИШЕВОСТИ</span></a>
+      <nav class="nav" aria-label="Навигация"><a href="#dossier">Досье</a><a href="#proof">Экспертиза</a><a href="#gallery">Архив</a><a href="#dictionary">Имена</a><a class="nav-tag" href="#birthday">С ДР ↗</a></nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="main-title">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="dot"></span><span class="hero-kicker">Специальный выпуск № 3337 · 100% субъективно</span></div>
+          <h1 id="main-title">МАКСИМ<br><span class="outline">ПУПУ</span><br><span class="last">ПУРИК<span style="color:#e87469">.</span></span></h1>
+          <p class="hero-lead">Не просто человек. Не просто студент. Не просто <b>Максакака</b>. Перед нами редчайший, поразительно нишевый, совершенно необъяснимый <b>Максим Пурик</b>.</p>
+          <div class="hero-bottom"><a class="button" href="#dossier">Изучить феномен <span aria-hidden="true">↗</span></a><span class="mono hero-note">Читать с уважением. Понимать необязательно.</span></div>
+        </div>
+        <div class="hero-visual">
+          <div class="photo-frame"><img src="max-1.jpg" alt="Максим Пурик — герой совершенно нишевого досье" fetchpriority="high"><div class="caption mono"><span>Объект № 001</span><span>Слишком нишевый</span></div></div>
+          <div class="hero-sticker">ОФИЦИАЛЬНО<br>НИШЕВАЯ<br>БАКА ✳</div>
+          <div class="hero-star" aria-hidden="true">✳</div>
+        </div>
+      </div>
+    </section>
+    <div class="ticker" aria-label="Максим Пурик, самый нишевый человек"><div class="ticker-in"><span>✳ АБСОЛЮТНО НИШЕВЫЙ</span><span>///</span><span>НИШЕВАЯ БАКА</span><span>///</span><span>МАКСАКАКА</span><span>///</span><span>МАКСИМ ПУПУПУРИК</span><span>///</span><span>НИЧЕГО НЕ ОБЪЯСНЯЕМ</span><span>✳</span></div></div>
+    <section class="facts" aria-label="Краткая справка"><div class="container facts-grid">
+      <div class="fact"><span class="mono">01 / Личность</span><strong>Максим<br>Пурик</strong></div>
+      <div class="fact"><span class="mono">02 / Академия</span><strong>ГУАП<br>группа 3337</strong></div>
+      <div class="fact"><span class="mono">03 / География</span><strong>Питер<br>МСГ</strong></div>
+      <div class="fact"><span class="mono">04 / Статус</span><strong>Ниша<br>высшего уровня</strong></div>
+    </div></section>
+
+    <section class="intro" aria-labelledby="intro-title"><div class="container intro-grid">
+      <div class="mono sideheading">Предисловие к легенде</div>
+      <div class="intro-text"><h2 id="intro-title">Есть обычные люди.<br>Есть необычные люди.<br>А есть <span class="marker">Максим.</span><span class="intro-asterisk">✳</span></h2>
+        <p>Время от времени история рождает фигуры, которые не укладываются в привычные определения. Про них сложно написать в двух словах, в трёх предложениях и даже в диссертации на четыреста страниц. Одни называют это харизмой. Другие — индивидуальностью. Но специалисты Института нишевости вынуждены признать: перед нами нечто значительно более нишевое.</p>
+        <p>Далее следует полное, почти научное и абсолютно торжественное исследование Максима Пурика. Мы будем много говорить о том, насколько он нишевый. Мы принципиально не будем объяснять, <i>в чём именно</i>. Потому что подобные подробности только разрушили бы магию.</p>
+      </div>
+    </div></section>
+
+    <section class="article" id="dossier" aria-labelledby="article-title"><div class="container">
+      <div class="section-head"><div><span class="mono">Большой материал / читать вдумчиво</span><h2 id="article-title">Досье<br>абсолютной ниши<span style="color:#ef725d">.</span></h2></div><div class="sub mono">Восемь глав. Ноль конкретных объяснений. Максимум нишевости.</div></div>
+      <div class="article-grid">
+        <aside class="article-aside"><div class="aside-sticky"><h3>Заметка редакции</h3><p class="aside-note">Всё, что написано ниже, — не попытка определить Максима. Это попытка смириться с тем, что определение ему не требуется.</p><div class="mini-fact"><span class="mono">Заключение комиссии</span><strong>НИША<br>НИШ</strong><span class="mono">Пояснения отсутствуют.</span></div></div></aside>
+        <div class="chapters">
+          <article class="chapter"><span class="chapter-num mono">01.</span><div><h3>Феномен, которого никто не просил объяснять</h3><p>В мире существует множество людей, которых принято называть интересными. Есть люди необычные, оригинальные, своеобразные и даже, в отдельных случаях, экстраординарные. Но все эти слова заканчиваются ровно там, где начинается Максим Пурик. Когда Максим появляется в пространстве, само пространство, как утверждают неподтверждённые источники, на несколько секунд становится гораздо более нишевым. Никто не может зафиксировать причину. Никто даже не может точно сформулировать результат. Тем не менее все понимают: произошло что-то нишевое.</p><p>Здесь важно не поддаться искушению и не начать перечислять черты его характера, привычки или особенности. В этом нет никакого смысла. <span class="emphasis">Нишевость Максима не нуждается в доказательствах, потому что она и есть доказательство.</span> Он просто есть. И этого уже подозрительно много.</p></div></article>
+          <article class="chapter"><span class="chapter-num mono">02.</span><div><h3>Что вообще значит «самый нишевый»?</h3><p>Вопрос кажется простым только тем, кто никогда не сталкивался с настоящим Пупупуриком. Обычную нишевость можно представить себе как редкую категорию, маленькое сообщество или неочевидное явление. Но нишевость Максаки — это нишевость настолько высокого порядка, что привычные слова начинают работать с перебоями. Она не громкая и не тихая, не очевидная и не скрытая. Она, как ни странно, именно нишевая. Причём очень.</p><p>Экспертный совет долго искал корректную единицу измерения. Предлагались баллы, проценты, условные единицы и даже «один Пурик». Последний вариант признали перспективным, но непрактичным: если один Максим уже равен одному Максиму, то дальнейшие вычисления становятся философской задачей, к которой человечество пока не подготовлено.</p></div></article>
+          <article class="chapter"><span class="chapter-num mono">03.</span><div><h3>ГУАП. Группа 3337. И неразгаданная переменная М</h3><p>Официальные сведения сообщают: Максим — студент ГУАП, группа 3337. Казалось бы, перед нами достаточно обычная информация. Но стоит добавить к ней Максима, и академический контекст немедленно приобретает оттенок сложнейшего исследования. Ведь группа может изучать самые разные дисциплины, университет может хранить множество научных знаний, а Максим, как особое явление, всё равно остаётся за пределами общепринятой классификации.</p><p>Есть основания полагать, что где-то между привычным расписанием, парами, сообщениями в чатах и повседневной жизнью существует та самая невидимая ниша. Её нельзя указать на карте университета. Нельзя измерить линейкой. Нельзя получить зачёт за её понимание. Но если где-то и должен появиться новый академический термин «пуриковедение», то начало его истории, несомненно, связано с номером <span class="emphasis">3337</span>.</p></div></article>
+          <article class="chapter"><span class="chapter-num mono">04.</span><div><h3>Петербургский период: ниша среди ниш</h3><p>Санкт-Петербург привык к необычным явлениям. Здесь есть место странным легендам, запутанным разговорам, внезапным открытиям и людям с непростым внутренним устройством. Поэтому сам факт присутствия Максима в Питере можно счесть почти закономерным. Город, кажется, давно готовился к встрече с человеком, который сумеет превратить обычное слово «нишевый» в полноценную жизненную концепцию.</p><p>В материалах дела фигурирует и МСГ. Но обсуждать его географию и конкретные бытовые обстоятельства было бы слишком прямолинейно. Нам гораздо важнее другое: даже находясь в совершенно повседневных обстоятельствах, Максим продолжает оставаться событием совершенно неповседневного масштаба. Нишевость не привязана к месту. Нишевость сама выбирает, где ей быть. И иногда этим местом оказывается там, где находится Максим.</p></div></article>
+          <article class="chapter"><span class="chapter-num mono">05.</span><div><h3>Максакака — больше, чем прозвище</h3><p>Имена бывают официальными, домашними, дружескими и такими, которые невозможно объяснить вне очень конкретного круга людей. Слово «Максакака» относится к последней категории, но при этом давно вышло за её пределы и стало самостоятельным культурным явлением. В нём есть одновременно нежность, лёгкая нелепость, величие и та самая необъяснимая энергия, которую исследователи отказываются сводить к простому определению.</p><p>Произнеся «Максакака», человек будто подтверждает: да, я знаком с феноменом; да, я признаю его нишевость; да, у меня нет ни малейшего намерения объяснять происходящее посторонним. И правильно. Некоторые вещи становятся менее нишевыми в ту секунду, когда их пытаются объяснить. <span class="emphasis">Максакака существует не для того, чтобы быть понятным. Максакака существует, чтобы быть Максакакой.</span></p></div></article>
+          <article class="chapter"><span class="chapter-num mono">06.</span><div><h3>Нишевая бака. Одна фраза — целая эпоха</h3><p>Если «Максим Пурик» — это имя человека, а «Максакака» — его дружеский исторический титул, то «нишевая бака» — уже философское направление. Оно не подразумевает инструкции, не требует специальной подготовки и не вступает в противоречие с законами физики. По крайней мере до тех пор, пока Максим не находится поблизости. Тогда законы физики предпочитают вежливо отойти в сторону и ничего не комментировать.</p><p>Нишевая бака не обязана производить впечатление. Она не должна стремиться к уникальности, демонстрировать необычность или искать подтверждение своей исключительности. Все эти действия выглядели бы слишком очевидно. Истинная нишевая бака просто присутствует, и её присутствие меняет эмоциональную температуру окружающей реальности на несколько единиц неопределённой шкалы.</p></div></article>
+          <article class="chapter"><span class="chapter-num mono">07.</span><div><h3>Максим Пупупурик и предел человеческого языка</h3><p>Есть слова, которые приятно повторять. Есть слова, которые сами по себе звучат как маленькое поздравление. И есть «Пупупурик» — лингвистическое доказательство того, что язык способен превратиться в дружескую улыбку. Стоит произнести «Максим Пупупурик» достаточно торжественно, и обычная фраза приобретает почти церемониальное значение. В этот момент становится совершенно ясно: перед нами человек, для которого недостаточно одного имени и слишком скучно иметь только одно прозвище.</p><p>Важно понимать, что многообразие имён не отменяет единства личности. Максим, Максакака, нишевая бака и Пупупурик — не четыре разных существа. Это четыре попытки общества приблизиться к одной и той же непостижимой истине. Каждая попытка прекрасна. Каждая недостаточна. Каждая оставляет после себя ощущение, что где-то рядом происходит что-то очень, очень нишевое.</p></div></article>
+          <article class="chapter"><span class="chapter-num mono">08.</span><div><h3>Заключение, которое ничего не заключает</h3><p>Мы изучили имеющиеся сведения, сопоставили многочисленные впечатления, рассмотрели наиболее вероятные гипотезы и пришли к выводу: Максим Пурик действительно очень нишевый. Более того, есть достаточно веские основания предполагать, что он нишевее, чем казалось в самом начале. Это удивительно, ведь уже тогда он казался предельно нишевым. Однако новые уровни нишевости продолжают открываться без предупреждения, а границы возможного — постепенно терять значение.</p><p>Так что же мы узнали? Ничего конкретного. И это, пожалуй, лучший результат из возможных. Мы не установили, почему он такой. Не выяснили, как это работает. Не сумели воспроизвести подобное явление в лабораторных условиях. Зато получили возможность однажды совершенно искренне сказать: <span class="emphasis">«Да, я знаю Максима. Он невероятно нишевый».</span> И в этих словах, уважаемый читатель, уже содержится целая вселенная.</p></div></article>
+        </div>
+      </div>
+    </div></section>
+
+    <section class="quant" id="proof" aria-labelledby="quant-title"><div class="container">
+      <div class="quant-top"><span class="mono">Независимая экспертиза / результаты исследования</span><span class="mono tag">Не проверено, но очевидно</span></div>
+      <div class="quant-main"><div class="quant-big"><span class="mono" id="quant-title">Индекс нишевости Максима Пурика</span><span class="big-num">∞%</span><p>Когда шкала закончилась, мы продолжили измерять. Когда закончились измерения, Максим всё ещё оставался нишевым.</p></div>
+      <div class="quant-bars"><div class="scale-line"><div class="scale-t"><span>ОБЫЧНАЯ НИШЕВОСТЬ</span><span>12%</span></div><div class="bar"><i style="--fill:12%"></i></div></div><div class="scale-line"><div class="scale-t"><span>ЭКСТРАОРДИНАРНАЯ НИШЕВОСТЬ</span><span>72%</span></div><div class="bar"><i style="--fill:72%"></i></div></div><div class="scale-line"><div class="scale-t"><span>МАКСИМ ПУРИК</span><span>ЗА ГРАНИЦЕЙ ШКАЛЫ</span></div><div class="bar"><i style="--fill:100%"></i></div></div><span class="mono quant-disclaimer">* Данные получены методом пристального наблюдения, дружеских прозвищ и полной научной безответственности. Ошибка измерений составляет приблизительно всё.</span></div></div>
+    </div></section>
+
+    <section class="gallery" id="gallery" aria-labelledby="gallery-title"><div class="container">
+      <div class="section-head"><div><span class="mono">Визуальные материалы / открытый архив</span><h2 id="gallery-title">Лицо<br>феномена<span style="color:#ef725d">.</span></h2></div><div class="sub mono">Любая фотография Максима автоматически становится редким артефактом.</div></div>
+      <div class="gallery-grid">
+        <div class="gallery-card main has-photo"><img src="max-1.jpg" alt="Максим в тёмной кофте с взъерошенными волосами" loading="lazy"><div class="photo-label"><span>Файл 001 // Максим</span><span>Подлинник ✓</span></div></div>
+        <div class="gallery-card" data-photo="max-2.jpg"><div class="gallery-typography">НИША<br>ЗДЕСЬ.<small>Рассекречено, но ничего не понятно.</small></div><div class="photo-label"><span>Файл 002 // Нишевая бака</span><span>↗</span></div></div>
+        <div class="gallery-card" data-photo="max-3.jpg"><div class="gallery-typography">МА-<br>КСА-<br>КАКА<small>Архивный меметический материал.</small></div><div class="photo-label"><span>Файл 003 // Легенда</span><span>↗</span></div></div>
+        <div class="gallery-card" data-photo="max-4.jpg"><div class="gallery-typography">3337<br>✳<small>Степень нишевости не определена.</small></div><div class="photo-label"><span>Файл 004 // Редкий кадр</span><span>↗</span></div></div>
+        <div class="gallery-card"><div class="gallery-typography">НЕ<br>ОБЪЯС-<br>НЯЕМ.<small>В этом, собственно, весь смысл.</small></div><div class="photo-label"><span>Файл 005 // Вывод экспертов</span><span>∞</span></div></div>
+      </div><p class="mono gallery-caption">Архив хранит то, что наука пока не умеет описать.</p>
+    </div></section>
+
+    <section class="dictionary" id="dictionary" aria-labelledby="dict-title"><div class="container">
+      <div class="section-head"><div><span class="mono">Карманный словарь / издание первое</span><h2 id="dict-title">Как его<br>называть<span style="color:#ef725d">?</span></h2></div><div class="sub mono">Никакой иерархии. Все названия официально неофициальны.</div></div>
+      <div class="word-grid"><div class="word-card"><span class="mono">Термин / 001</span><h3>Максакака</h3><p>Тёплое, исторически значимое и совершенно нишевое имя. Его произносят с пониманием, даже когда не понимают ничего.</p></div><div class="word-card"><span class="mono">Термин / 002</span><h3>Нишевая<br>бака</h3><p>Не столько прозвище, сколько почётное звание. Выдаётся за исключительные заслуги в области необъяснимой нишевости.</p></div><div class="word-card"><span class="mono">Термин / 003</span><h3>Максим<br>Пупупурик</h3><p>Полная церемониальная форма. Рекомендуется для поздравлений, важных событий и моментов, когда одного «Максим» явно недостаточно.</p></div></div>
+    </div></section>
+
+    <section class="orbit" aria-labelledby="orbit-title"><div class="container">
+      <div class="section-head"><div><span class="mono">Связи, симпатии и культурный контекст</span><h2 id="orbit-title">Вокруг<br>легенды<span style="color:#ef725d">.</span></h2></div><div class="sub mono">Даже у величайшей ниши есть своя вселенная.</div></div>
+      <div class="orbit-grid"><div class="orbit-card fav"><div class="orbit-copy"><span class="mono">Особое досье / 01</span><h3>МИЛЫЙ<br>УБЛЮДОК<span style="color:#ed6d5b">♥</span></h3><p>Так Максим ласково называет своего любимого парня. Дружеская нежность, выраженная на уникальном языке — буквально отдельный жанр искусства.</p><span class="mono orbit-bottom">Цитата сохранена без цензуры ♡</span></div><div class="fav-art" data-photo="favorite.jpg"><div class="placeholder-word" aria-label="Сердце">♡</div></div></div>
+      <div class="orbit-card music"><span class="mono">Саундтрек феномена / 02</span><span class="music-asterisk" aria-hidden="true">✳</span><h3><span>ЕГОР</span><span>КРИД.</span></h3><span class="mono music-tag">В плейлисте у легенды</span><p class="music-bottom">Фанат Егора Крида. Доказательство того, что у человека с настолько нишевой аурой вполне может быть собственная музыкальная константа. Некоторые вещи не требуют объяснений. И это тоже.</p></div></div>
+    </div></section>
+
+    <section class="qa" aria-labelledby="qa-title"><div class="container qa-grid"><div class="section-head"><div><span class="mono">Ответы / без гарантий ясности</span><h2 id="qa-title">Вопросы<br>к нише<span style="color:#ef725d">.</span></h2></div></div><div class="qa-list">
+      <details><summary>Почему Максим настолько нишевый?</summary><p>Потому что он Максим. Это единственное объяснение, которое выдержало восемь раундов экспертных обсуждений и не потребовало дополнительных сносок.</p></details>
+      <details><summary>А в чём конкретно его нишевость?</summary><p>Наша редакция категорически отказывается отвечать на этот вопрос. Попытка назвать конкретную причину автоматически сделала бы феномен слишком понятным. Этого допустить нельзя.</p></details>
+      <details><summary>Существуют ли люди нишевее него?</summary><p>Теоретически во вселенной возможно многое. Но в пределах этого сайта, дня рождения и текущего научного консенсуса — нет.</p></details>
+      <details><summary>Кто такой Пупупурик?</summary><p>Максим Пупупурик — это Максакака, также известный как нишевая бака и Максим Пурик. Не путать с обычным Максимом. Хотя обычного Максима здесь вообще нет.</p></details>
+      <details><summary>Зачем существует этот сайт?</summary><p>Чтобы в день рождения один очень нишевый человек увидел, что для него кто-то сделал целый маленький уголок интернета. И чтобы можно было с совершенно серьёзным лицом отправлять ссылку на энциклопедию Максакаки.</p></details>
+    </div></div></section>
+
+    <section class="birthday" id="birthday" aria-labelledby="birthday-title"><div class="container"><div class="birthday-head"><span class="mono">Официальное поздравление / без срока годности</span><span class="birthday-icon" aria-hidden="true">✳</span></div>
+      <h2 id="birthday-title">С ДНЁМ<br><span class="outline">РОЖДЕНИЯ,</span><br>МАКСАКАКА!</h2>
+      <p class="birthday-description">Максим Пупупурик, оставайся собой: неуловимо нишевым, совершенно оригинальным и по-своему легендарным. Пусть у тебя будет побольше поводов улыбаться, классных людей рядом, любимой музыки, счастливых дней и приятных неожиданностей. А если кто-нибудь спросит, почему ты такой нишевый, просто отправь ему этот сайт. Здесь целая статья, и она всё равно ничего не объясняет. <b>С днём рождения, нишевая бака! ♡</b></p>
+      <div class="birthday-action"><button class="button" type="button" id="secret-button" aria-expanded="false" aria-controls="secret-message">Открыть секретное послание ↗</button><span class="mono">Не секретно. Просто очень важно.</span></div>
+      <div id="secret-message" class="message" role="status"><strong>Секретный протокол № 3337: ♡</strong>Максим, спасибо, что ты есть. Ты можешь быть сколько угодно нишевым, непонятным, пупупуриковым и макакакающим — и всё равно оставаться человеком, которого очень ценят. Пусть впереди будет много хорошего. Ты легенда. С праздником!</div>
+    </div></section>
+  </main>
+  <footer><div class="container footer-grid"><span class="footer-mark">н/ ✳</span><span class="mono">Институт нишевости © 2026 · Все исследования шуточные, вся теплота настоящая</span><a class="mono" href="#top">Наверх ↑</a></div></footer>
+  <script>
+    (() => {
+      const progress = document.getElementById('progress');
+      let pending = false;
+      function updateProgress() {
+        const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+        progress.style.width = (scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0) + '%';
+        pending = false;
+      }
+      window.addEventListener('scroll', () => {
+        if (!pending) { pending = true; requestAnimationFrame(updateProgress); }
+      }, {passive:true});
+      updateProgress();
+      // Optional photos. Drop max-2.jpg, max-3.jpg, max-4.jpg or favorite.jpg beside index.html.
+      document.querySelectorAll('[data-photo]').forEach(card => {
+        const photo = new Image();
+        photo.alt = card.dataset.photo === 'favorite.jpg' ? 'Любимый парень Максима' : 'Снимок из архива Максима Пурика';
+        photo.decoding = 'async';
+        photo.onload = () => { card.prepend(photo); card.classList.add('has-photo'); };
+        photo.src = card.dataset.photo;
+      });
+      const button = document.getElementById('secret-button');
+      const message = document.getElementById('secret-message');
+      button.addEventListener('click', () => {
+        const visible = message.classList.toggle('show');
+        button.setAttribute('aria-expanded', String(visible));
+        button.textContent = visible ? 'Скрыть послание ↑' : 'Открыть секретное послание ↗';
+      });
+    })();
+  </script>
+</body>
+</html>
